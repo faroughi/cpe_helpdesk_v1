@@ -14,5 +14,13 @@
         "officeHours": "M W F 4:30 PM to 5:30 PM",
         "email": "shobaki@csus.edu",
         "courses": "CSC 139 and CSC 151"
+    },
+    {
+        "salutation": "Dr.",
+        "lastName": "Doe",
+        "firstName": "John",
+        "officeHours": "M W F 4:30 PM to 5:30 PM",
+        "email": "shobaki@csus.edu",
+        "courses": "CSC 139 and CSC 151"
     }
 ]
