@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var request = require('request');
 var courseStore = JSON.parse(fs.readFileSync(process.cwd() + '/courses.json', 'utf8'));
 var professorStore = JSON.parse(fs.readFileSync(process.cwd() + '/professors.json', 'utf8'));
 var areaStore = JSON.parse(fs.readFileSync(process.cwd() + '/areas.json', 'utf8'));
@@ -13,7 +14,7 @@ router.post('/bothandle', function (req, res, next) {
   if (map.action === 'prerequisite') {
     var department = map.parameters.department;
     var number = map.parameters.number;
-    push_prerequisites(res, department + number);
+    push_course_details(res, department, number);
   }
   else if (map.action === 'professor_enquiry') {
     var lastName = map.parameters.lastName;
@@ -68,8 +69,8 @@ router.post('/bothandle', function (req, res, next) {
   }
 });
 // all helper functions go here
-function push_prerequisites(res, key) {
-  var answer = "";
+function push_course_details(res, department, number) {
+  var answer = "", key = department + number;
   if (courseStore[key] === undefined) {
     answer = "There is no course such as " + key + " in our catlog. Please call office for more information";
   }
@@ -85,7 +86,7 @@ function push_prerequisites(res, key) {
     "speech": answer,
     "displayText": answer,
     "data": {},
-    "contextOut": [{ "name": "lastCourse", "lifespan": 2, "parameters": { "courseName": key } }],
+    "contextOut": [{ "name": "lastCourse", "lifespan": 2, "parameters": { "department": department, "number": number } }],
     "source": "backend_service"
   }));
 }
@@ -124,18 +125,18 @@ function push_professor_details(res, lastName, firstName, enquiry) {
 
 }
 function push_area_details(res, area) {
-  var answer ="";
-  if(areaStore[area]==="")
-  answer = "We dont have any courses in our catalogue that match "+area
+  var answer = "";
+  if (areaStore[area] === "")
+    answer = "We dont have any courses in our catalogue that match " + area
   else
-  answer = "If you are interested in "+area+ ", here are some of the course we are offering: "+areaStore[area];
+    answer = "If you are interested in " + area + ", here are some of the course we are offering: " + areaStore[area];
   res.status(200)
   res.set("Content-type", "application/json");
   res.send(JSON.stringify({
     "speech": answer,
     "displayText": answer,
     "data": {},
-    "contextOut": [{ "name": "lastArea", "lifespan": 2, "parameters": { "area": area} }],
+    "contextOut": [{ "name": "lastArea", "lifespan": 2, "parameters": { "area": area } }],
     "source": "backend_service"
   }));
 }

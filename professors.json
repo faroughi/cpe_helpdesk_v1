@@ -1,10 +1,18 @@
 [
     {
-        "salutation":"Dr.",
-        "lastName":"Faroughi",
-        "firstName":"Nikrouz",
-        "officeHours":"M W F 4:30 PM to 5:30 PM",
-        "email":"faroughi@csus.edu",
-        "courses":"CSC 137"
+        "salutation": "Dr.",
+        "lastName": "Faroughi",
+        "firstName": "Nikrouz",
+        "officeHours": "M W F 4:30 PM to 5:30 PM",
+        "email": "faroughi@csus.edu",
+        "courses": "CSC 137"
+    },
+    {
+        "salutation": "Dr.",
+        "lastName": "Shobaki",
+        "firstName": "Ghassan",
+        "officeHours": "M W F 4:30 PM to 5:30 PM",
+        "email": "shobaki@csus.edu",
+        "courses": "CSC 139 and CSC 151"
     }
 ]

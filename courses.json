@@ -1,8 +1,22 @@
 {
     "CSC60": {
         "title": "programming methodology",
-        "description": "jasdfjkal;sdfjklkj;asdf",
-        "prerequisites": "",
-        "professors":"Doan Nguyen, Ted krovetz"
+        "prerequisites": "CSC 20 and CSC 35"
+    },
+    "CPE138": {
+        "title": "Computer networks and internets",
+        "prerequisites": "CSC 35, CSC 60 and CSC 130"
+    },
+    "CPE166": {
+        "title": "Advanced logic design",
+        "prerequisites": "ENGR 17 abd CPE 64"
+    },
+    "CSC139":{
+        "title":"Operating system principles",
+        "prerequisites":"CSC 60, CSC 130, CPE 185"
+    },
+    "CSC137":{
+        "title":"Operating system principles",
+        "prerequisites":"CSC 60, CSC 130, CPE 185"
     }
 }
